@@ -379,6 +379,10 @@
 
     function nextQuestion(){
       hideTyping();
+      if (stage1Queue.length + stage2Queue.length < 4) {
+          const completeBtn = document.querySelector('.tutor-course-lesson-complete');
+          if (completeBtn) completeBtn.click();
+      }
       if(!stage1Queue.length&&!stage2Queue.length) return endSession();
       const {term,mode}=pickNext(); mode==='typing'?renderTyping(term):renderMCQ(term);
     }
