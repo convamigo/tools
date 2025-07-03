@@ -381,8 +381,9 @@
       hideTyping();
       if (stage1Queue.length + stage2Queue.length < 4) {
           window.parent.postMessage('markComplete', '*');
+          return endSession();
       }
-      if(!stage1Queue.length&&!stage2Queue.length) return endSession();
+      if (!stage1Queue.length && !stage2Queue.length) return endSession();
       const {term,mode}=pickNext(); mode==='typing'?renderTyping(term):renderMCQ(term);
     }
 
